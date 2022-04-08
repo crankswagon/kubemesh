@@ -10,6 +10,16 @@ Most of the modern data analysis platforms force you to pick an underlying proce
 
 That's where `kubernetes` comes in by letting you pick whatever engine you want for the analytic workload. 
 
+
+## Roadmap
+
+|engine|mode|status|
+|  ---  |  ---  |  ---  |
+|spark|notebook|![pushed](https://img.shields.io/badge/pushed-darkgreen)|
+|spark|[operator](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator)|![learning](https://img.shields.io/badge/learning-orange)|
+|flink| [tbd](https://flink.apache.org/2021/02/10/native-k8s-with-ha.html) |![learning](https://img.shields.io/badge/learning-orange)|
+
+
 ## Tested On
 ![k3s](https://img.shields.io/badge/kubernetes-v1.22.3%2Bk3s1-blue)
 
@@ -64,3 +74,5 @@ If you think this is a terrible idea, please also open an issue and tell me why 
 <a href="./LICENSE"><img
        src="https://img.shields.io/badge/LICENSE-WTFPL-black"
        alt="WTFPL" /></a>
+
+Each directory inside of `./stacks` contains its own `README.MD` which serves both as documentation and deployment guide.
