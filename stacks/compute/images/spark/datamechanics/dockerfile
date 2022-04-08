@@ -1,0 +1,20 @@
+## https://hub.docker.com/r/datamechanics/spark
+#  https://towardsdatascience.com/optimized-docker-images-for-apache-spark-now-public-on-dockerhub-1f9f8fed1665
+## https://spot.io/blog/tutorial-running-pyspark-inside-docker-containers/
+## https://docs.datamechanics.co/docs/docker-images
+
+FROM gcr.io/datamechanics/spark:3.2.1-hadoop-3.3.1-java-11-scala-2.12-python-3.8-dm17
+## cause java 8 doens't play well with minio + nginx ssl's tls version
+
+
+
+## repack some missing python apis, seems that datamechanics ppl like to use scala
+
+USER root
+
+RUN python3 -m pip install --upgrade pip
+COPY requirements.txt .
+
+RUN python3 -m pip install -r requirements.txt
+
+USER 185

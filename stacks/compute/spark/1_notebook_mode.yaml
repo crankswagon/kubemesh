@@ -1,3 +1,5 @@
+#adapted from https://towardsdatascience.com/jupyter-notebook-spark-on-kubernetes-880af7e06351
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -114,6 +116,27 @@ spec:
     port: 2222
     protocol: TCP
 ---
+
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: notebook-storage-claim
+#   labels:
+#     release: jupyter
+# spec:
+#   selector:
+#     matchLabels:
+#       release: jupyter
+#   storageClassName: nfs
+#   accessModes:
+#     - ReadWriteMany
+#   resources:
+#     requests:
+#       storage: 100Gi
+
+
+---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -128,18 +151,18 @@ spec:
   podManagementPolicy: Parallel
   volumeClaimTemplates:
   - metadata:
-      name: notebook-data
+      name: notebook-storage
       labels:
         release: jupyter
     spec:
       accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
       volumeMode: Filesystem
-      volumeName: jupyter-files
+      volumeName: notebook-storage
       resources:
         requests:
-          storage: 1Gi
-      storageClassName: hostpath
+          storage: 100Gi
+      storageClassName: nfs
   selector:
     matchLabels:
       release: jupyter
@@ -173,8 +196,8 @@ spec:
           containerPort: 2222
           protocol: TCP
         volumeMounts:
-        - name: notebook-data
-          mountPath: /home/notebook
+        - name: notebook-storage
+          mountPath: /home/sparkuser
         resources:
           limits:
             cpu: 2000m
