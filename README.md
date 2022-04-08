@@ -13,6 +13,48 @@ That's where `kubernetes` comes in by letting you pick whatever engine you want 
 ## Tested On
 ![k3s](https://img.shields.io/badge/kubernetes-v1.22.3%2Bk3s1-blue)
 
+## Navigation
+
+```bash
+.
+├── LICENSE
+├── README.md
+├── stacks
+│   ├── compute
+│   │   ├── flink
+│   │   ├── images
+│   │   │   ├── spark
+│   │   │   │   ├── driver
+│   │   │   │   │   ├── dockerfile
+│   │   │   │   │   └── requirements.txt
+│   │   │   │   └── node
+│   │   │   │       ├── dockerfile
+│   │   │   │       └── requirements.txt
+│   │   │   └── spark.md
+│   │   ├── spark
+│   │   │   ├── 0_storage.yaml
+│   │   │   └── 1_notebook_mode.yaml
+│   │   └── spark.md
+│   ├── registry
+│   │   ├── docker
+│   │   │   ├── 0_storage.yaml
+│   │   │   └── 1_docker_registry.yaml
+│   │   └── registry.md
+│   ├── storage
+│   │   ├── minio
+│   │   │   ├── 0_storage.yaml
+│   │   │   └── 1_standalone_stack.yaml
+│   │   └── storage.md
+│   └── workflow
+│       ├── argo
+│       └── argo.md
+└── workload
+    └── spark
+        └── delta-test.ipynb
+```
+
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
