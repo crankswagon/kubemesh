@@ -6,9 +6,7 @@
 FROM gcr.io/datamechanics/spark:3.2.1-hadoop-3.3.1-java-11-scala-2.12-python-3.8-dm17
 ## cause java 8 doens't play well with minio + nginx ssl's tls version
 
-
-
-## repack some missing python apis, seems that datamechanics ppl like to use scala
+## repack some missing python apis
 
 USER root
 
