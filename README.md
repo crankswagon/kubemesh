@@ -2,7 +2,7 @@
  kubemesh is a library of kubernetes manifests for building out a self contained `datamesh` on any environment
 
  # why?
-[![datamesh](https://img.shields.io/badge/datamesh-data%20decentralisation-darkgreen)](https://www.thoughtworks.com/what-we-do/data-and-ai/data-mesh)
+[![datamesh](https://img.shields.io/badge/datamesh-engine%20agnostic-darkgreen)](https://www.thoughtworks.com/what-we-do/data-and-ai/data-mesh)
 
 The tl;dr on `data mesh` is that data analysis should be decentralised and managed+operated by functional teams that intimately know and consume the source data.
 
